@@ -1,24 +1,26 @@
-#include "Fraction.h"
+п»ї#include "Fraction.h"
 
 
 double Fraction::div() { return numerator_ / denominator_; }
 
 Fraction::Fraction(int numerator, int denominator)
 {
+	if (numerator == 0) throw std::domain_error("Р§РёСЃР»РёС‚РµР»СЊ = 0, СЂРµС€РµРЅРёВ¤ РЅРµ СЃСѓС‰РµСЃС‚РІСѓРµС‚.");
+	if (denominator == 0) throw std::overflow_error("Р”РµР»РёС‚РµР»СЊ = 0, СЂРµС€РµРЅРёРµ СЃС‚СЂРµРјРёС‚СЃВ¤ Рє Р±РµСЃРєРѕРЅРµС‡РЅРѕСЃС‚Рё.");
+	
 	numerator_ = numerator;
-	if (denominator == 0) throw std::overflow_error("Делитель = 0");
 	denominator_ = denominator;
 }
 
 bool Fraction::operator == (Fraction fr)
 {
-	// сравнивает отдельно каждое поле класса
-	// предварительно выполнив деление
+	// СЃСЂР°РІРЅРёРІР°РµС‚ РѕС‚РґРµР»СЊРЅРѕ РєР°Р¶РґРѕРµ РїРѕР»Рµ РєР»Р°СЃСЃР°
+	// РїСЂРµРґРІР°СЂРёС‚РµР»СЊРЅРѕ РІС‹РїРѕР»РЅРёРІ РґРµР»РµРЅРёРµ
 	return (div() == fr.div());
 }
 bool Fraction::operator != (Fraction fr)
 {
-	// сравнивает целиком объекты с помощью перегруженного ==
+	// СЃСЂР°РІРЅРёРІР°РµС‚ С†РµР»РёРєРѕРј РѕР±СЉРµРєС‚С‹ СЃ РїРѕРјРѕС‰СЊСЋ РїРµСЂРµРіСЂСѓР¶РµРЅРЅРѕРіРѕ ==
 	return !(*this == fr);
 }
 bool Fraction::operator < (Fraction fr)

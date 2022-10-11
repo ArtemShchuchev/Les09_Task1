@@ -23,6 +23,10 @@ int main(int argc, char** argv)
 		std::cout << "f1" << ((f1 <= f2) ? " <= " : " not <= ") << "f2" << '\n';
 		std::cout << "f1" << ((f1 >= f2) ? " >= " : " not >= ") << "f2" << '\n';
 	}
+	catch (std::domain_error& err)
+	{
+		std::cout << "Ошибка: " << err.what() << std::endl;
+	}
 	catch (std::overflow_error& err)
 	{
 		std::cout << "Ошибка: " << err.what() << std::endl;
