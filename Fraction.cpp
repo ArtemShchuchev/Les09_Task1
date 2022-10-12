@@ -6,8 +6,11 @@ double Fraction::div() { return static_cast<double>(numerator_) / denominator_; 
 
 Fraction::Fraction(int numerator, int denominator)
 {
-	if (numerator == 0 && denominator != 0) throw std::domain_error("Числитель = 0, решени¤ не существует.");
-	if (denominator == 0) throw std::overflow_error("Делитель = 0, решение стремитс¤ к бесконечности.");
+	if (numerator == 0 && denominator == 0)
+	{
+		throw std::domain_error("Числитель и знаменатель = 0, решения не существует.");
+	}
+	if (denominator == 0) throw std::overflow_error("Делитель = 0, решение стремится к бесконечности.");
 	
 	numerator_ = numerator;
 	denominator_ = denominator;
