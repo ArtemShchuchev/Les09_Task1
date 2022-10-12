@@ -1,11 +1,12 @@
 ﻿#include "Fraction.h"
 
-
-double Fraction::div() { return numerator_ / denominator_; }
+// ну, конечно вы правы без приведения к double работать не будет,
+// я даже делал это (или видимо хотел сделать), было позно, видимо просмотрел )
+double Fraction::div() { return static_cast<double>(numerator_) / denominator_; }
 
 Fraction::Fraction(int numerator, int denominator)
 {
-	if (numerator == 0) throw std::domain_error("Числитель = 0, решени¤ не существует.");
+	if (numerator == 0 && denominator != 0) throw std::domain_error("Числитель = 0, решени¤ не существует.");
 	if (denominator == 0) throw std::overflow_error("Делитель = 0, решение стремитс¤ к бесконечности.");
 	
 	numerator_ = numerator;
