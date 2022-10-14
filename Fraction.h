@@ -7,15 +7,15 @@ class Fraction
 private:
 	int numerator_;
 	int denominator_;
-	double div();
+	void fracToIntInt(const Fraction&, int&, int&);
 
 public:
 	Fraction(int numerator, int denominator);
 
-	bool operator == (Fraction);
-	bool operator != (Fraction);
-	bool operator < (Fraction);
-	bool operator > (Fraction);
-	bool operator <= (Fraction);
-	bool operator >= (Fraction);
+	bool operator == (const Fraction&);
+	bool operator != (Fraction&);
+	bool operator < (Fraction&);
+	bool operator > (Fraction&);
+	bool operator <= (Fraction&);
+	bool operator >= (Fraction&);
 };
